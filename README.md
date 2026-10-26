@@ -99,3 +99,4 @@ pip install -r requirements-dev.txt && pytest -q    # run unit tests
 * Segments with fewer than 30 employees are flagged – treat their percentages with caution.
 * Correlation and risk-factor results describe association, not causation.
 "# HRanalytics" 
+"# HRanalytics" 
