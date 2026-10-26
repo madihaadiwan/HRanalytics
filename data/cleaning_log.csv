@@ -1,0 +1,12 @@
+Step,Action,Affected
+Text hygiene,Trimmed leading/trailing whitespace in text columns,0
+Standardise categories,BusinessTravel: merged 'TravelRarely' into 'Travel_Rarely' and relabelled to 'Non-Travel' / 'Travel Rarely' / 'Travel Frequently',8
+Remove duplicates,Dropped exact duplicate rows (all columns identical),7
+Remove duplicates,Dropped repeated EmpIDs whose rows differed only in YearsWithCurrManager (kept the first occurrence so each employee appears once),3
+Validate target,Rows where Attrition is not Yes/No removed,0
+Impute missing,YearsWithCurrManager: filled with the median for the same YearsInCurrentRole (correlation ≈ 0.71); flagged in column MgrYearsImputed,57
+Fix logical errors,YearsWithCurrManager capped at YearsAtCompany (cannot exceed tenure),2
+Validate logic,Consistency checks → YearsAtCompany > TotalWorkingYears: 0; YearsInCurrentRole > YearsAtCompany: 0; YearsSinceLastPromotion > YearsAtCompany: 0; Age < 18: 0; MonthlyIncome <= 0: 0,0
+Drop columns,"Removed constant columns (EmployeeCount, Over18, StandardHours) and the redundant identifier EmployeeNumber",4
+Feature engineering,"Added analysis columns: AttritionFlag, TenureBand, ExperienceBand, DistanceBand, PromotionGap, EducationLevel, AvgSatisfaction, IncomeVsLevelMedian, PayPosition, RiskFactorCount, RiskDrivers, MgrYearsImputed; rebuilt AgeGroup from Age and made SalarySlab an ordered category",12
+Result,"Clean dataset: 1,470 rows × 46 columns",1470
